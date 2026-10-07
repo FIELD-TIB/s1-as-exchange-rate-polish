@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  color-scheme: light;
+  --ink: #172820;
+  --muted: #7c8980;
+  --green: #197c55;
+  --green-dark: #145c41;
+  --mint: #dff1e7;
+  --page: #f4f6f4;
+  --line: #e8ece8;
+  --mono: "DM Mono", "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 14% 3%, rgba(224, 241, 230, .72), transparent 28rem),
+    var(--page);
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+.page-shell { max-width: 1032px; margin: 0 auto; padding: 0 34px 54px; }
+.topbar { height: 88px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(28, 54, 40, .08); }
+.brand { display: inline-flex; gap: 10px; align-items: center; color: var(--ink); text-decoration: none; font-family: Manrope, sans-serif; font-size: 19px; font-weight: 800; letter-spacing: -.8px; }
+.brand-mark { display: grid; width: 30px; height: 30px; place-items: center; color: white; background: var(--green); border-radius: 9px; font-family: var(--mono); font-size: 15px; }
+.brand-dot { color: var(--green); }
+.live-indicator, .eyebrow, .timezone-label, .sample-count { font-family: var(--mono); }
+.live-indicator { display: flex; align-items: center; gap: 8px; color: #7b8980; font-size: 10px; letter-spacing: 1.1px; }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #45a978; box-shadow: 0 0 0 4px rgba(69, 169, 120, .12); }
+
+.intro { padding: 65px 0 36px; }
+.eyebrow { margin: 0; color: var(--green); font-size: 10px; font-weight: 500; letter-spacing: 1.25px; }
+h1, h2, p { margin-top: 0; }
+h1 { margin: 16px 0 13px; font-family: Manrope, sans-serif; font-size: clamp(38px, 6.3vw, 62px); line-height: 1.08; letter-spacing: -3.1px; font-weight: 700; }
+h1 span { color: var(--green); }
+.intro-copy { max-width: 450px; margin: 0; color: #78847c; font-size: 15px; line-height: 1.7; }
+
+.rate-card { position: relative; overflow: hidden; padding: 29px 34px 22px; color: white; border-radius: 16px; background: linear-gradient(119deg, #153d2d 0%, #1e6949 100%); box-shadow: 0 15px 34px rgba(23, 74, 49, .12); }
+.rate-card::after { position: absolute; content: ""; width: 320px; height: 320px; top: -210px; right: -75px; border: 1px solid rgba(255,255,255,.11); border-radius: 50%; box-shadow: 0 0 0 35px rgba(255,255,255,.025), 0 0 0 70px rgba(255,255,255,.02); }
+.rate-card-top, .rate-card-bottom, .section-heading, .chart-heading, .table-heading { display: flex; align-items: center; justify-content: space-between; }
+.rate-card .eyebrow { color: rgba(232, 248, 237, .62); }
+.rate-card h2 { margin: 8px 0 0; font-family: Manrope, sans-serif; font-size: 19px; letter-spacing: -.5px; }
+.pair-arrow { color: #9ac7ac; padding: 0 3px; }
+.status-pill { position: relative; z-index: 1; padding: 7px 10px; color: #dcf3e4; border: 1px solid rgba(255,255,255,.2); border-radius: 99px; font-family: var(--mono); font-size: 10px; }
+.rate-value-row { display: flex; align-items: baseline; gap: 15px; padding: 22px 0 25px; }
+.rate-value { font-family: Manrope, sans-serif; font-size: clamp(42px, 8vw, 67px); font-weight: 600; letter-spacing: -3px; line-height: 1; }
+.unit-label { color: #c5dfce; font-size: 12px; }
+.unit-label span { color: #93bea1; }
+.rate-card-bottom { padding-top: 15px; border-top: 1px solid rgba(255,255,255,.13); color: rgba(230, 245, 235, .75); font-size: 11px; }
+.timezone-label { font-size: 10px; letter-spacing: .7px; }
+
+.history-section { padding-top: 47px; }
+.section-heading { margin-bottom: 18px; }
+.muted { color: #8a968e; }
+.section-heading h2 { margin: 6px 0 0; font-family: Manrope, sans-serif; font-size: 23px; letter-spacing: -.8px; }
+.sample-count { color: #849087; font-size: 10px; }
+.chart-card, .table-card { border: 1px solid #e9ede9; border-radius: 12px; background: rgba(255,255,255,.78); }
+.chart-card { padding: 19px 20px 12px; }
+.chart-heading, .table-heading { color: #526157; font-size: 12px; font-weight: 600; }
+.chart-legend { display: flex; align-items: center; gap: 7px; color: #8b968e; font-size: 10px; font-weight: 400; }
+.chart-legend i { width: 7px; height: 7px; border-radius: 50%; background: #2d9468; }
+.chart-wrap { height: 190px; position: relative; margin-top: 12px; }
+canvas { display: block; width: 100%; height: 100%; }
+.chart-empty { position: absolute; inset: 0; display: grid; place-items: center; padding: 0 20px; color: #9aa59d; text-align: center; font-size: 12px; }
+.chart-empty[hidden] { display: none; }
+.table-card { margin-top: 13px; overflow: hidden; }
+.table-heading { padding: 16px 20px; border-bottom: 1px solid #eef1ee; }
+.table-heading span:last-child { color: #9aa49c; font-size: 10px; font-weight: 400; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; min-width: 530px; border-collapse: collapse; text-align: left; }
+th { padding: 11px 20px; background: #fafbfa; color: #9aa49c; font-family: var(--mono); font-size: 9px; font-weight: 400; letter-spacing: .35px; text-transform: uppercase; }
+td { padding: 13px 20px; border-top: 1px solid #f0f2f0; color: #526157; font-size: 11px; }
+td:nth-child(2) { color: #246a4b; font-family: var(--mono); font-weight: 500; }
+.empty-row { padding: 22px 20px; color: #9aa49c !important; font-family: "DM Sans", Arial, sans-serif !important; font-weight: 400 !important; }
+footer { display: flex; justify-content: space-between; gap: 15px; padding-top: 25px; color: #9aa49c; font-size: 10px; }
+
+@media (max-width: 600px) {
+  .page-shell { padding: 0 18px 35px; }
+  .topbar { height: 70px; }
+  .intro { padding: 48px 0 28px; }
+  h1 { letter-spacing: -2px; }
+  .rate-card { padding: 23px 21px 18px; }
+  .rate-value-row { gap: 10px; }
+  .unit-label { font-size: 10px; }
+  .rate-card-bottom { align-items: flex-start; gap: 8px; font-size: 10px; }
+  .timezone-label { white-space: nowrap; }
+  .history-section { padding-top: 37px; }
+  .chart-wrap { height: 160px; }
+  footer { flex-direction: column; }
+}

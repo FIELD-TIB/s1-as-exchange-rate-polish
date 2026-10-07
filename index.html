@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6f4">
+    <title>KES / TZS Rate Tracker</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Rateboard home">
+          <span class="brand-mark" aria-hidden="true">R</span>
+          <span>rateboard<span class="brand-dot">.</span></span>
+        </a>
+        <div class="live-indicator"><span class="live-dot"></span> LOCAL TRACKER</div>
+      </header>
+
+      <section class="intro">
+        <p class="eyebrow">EAST AFRICAN CURRENCY WATCH</p>
+        <h1>Know what your<br><span>shillings are worth.</span></h1>
+        <p class="intro-copy">A simple, locally stored record of the Kenyan shilling against the Tanzanian shilling.</p>
+      </section>
+
+      <section class="rate-card" aria-labelledby="rate-heading">
+        <div class="rate-card-top">
+          <div>
+            <p class="eyebrow muted">CURRENT EXCHANGE RATE</p>
+            <h2 id="rate-heading">KES <span class="pair-arrow">/</span> TZS</h2>
+          </div>
+          <span id="poll-state" class="status-pill">Checking status</span>
+        </div>
+        <div class="rate-value-row">
+          <div id="rate-value" class="rate-value">—</div>
+          <span class="unit-label">TZS <span>for every</span> 1 KES</span>
+        </div>
+        <div class="rate-card-bottom">
+          <span id="last-updated">Waiting for the first rate sample…</span>
+          <span class="timezone-label">EAT · UTC+3</span>
+        </div>
+      </section>
+
+      <section class="history-section" aria-labelledby="history-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow muted">SAVED ON THIS DEVICE</p>
+            <h2 id="history-heading">Rate history</h2>
+          </div>
+          <span id="sample-count" class="sample-count">0 samples</span>
+        </div>
+        <div class="chart-card">
+          <div class="chart-heading">
+            <span>Recent samples</span>
+            <span class="chart-legend"><i></i> TZS per KES</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="rate-chart" role="img" aria-label="Chart of recent KES to TZS exchange rates"></canvas>
+            <p id="chart-empty" class="chart-empty">Your local chart will appear after the first successful rate update.</p>
+          </div>
+        </div>
+        <div class="table-card">
+          <div class="table-heading">
+            <span>Recent updates</span>
+            <span>Most recent first</span>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th scope="col">Collected at (EAT)</th><th scope="col">TZS per 1 KES</th><th scope="col">Provider rate date</th></tr></thead>
+              <tbody id="rate-rows"><tr><td colspan="3" class="empty-row">No samples saved yet. The app collects rates between 06:00 and 18:00 EAT.</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <span>Rates are indicative and provided by open.er-api.com.</span>
+        <span id="next-poll">Polling window: 06:00–18:00 EAT · every 10 minutes</span>
+      </footer>
+    </main>
+  </body>
+</html>
