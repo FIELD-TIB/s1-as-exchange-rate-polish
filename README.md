@@ -1,0 +1,1 @@
+# s1-as-exchange-rate-polish
